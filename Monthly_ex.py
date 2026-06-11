@@ -10,13 +10,12 @@ if "my_df" not in st.session_state:
     st.session_state["my_df"] = pd.DataFrame(columns=["Things", "Cost"])
 
 
-uploaded_file = st.file_uploader("upload your expenses.csv file", type=["csv"])
+uploaded_file = st.file_uploader("upload your expenses.csv file")
 
 
 if uploaded_file is not None and st.session_state["my_df"].empty:
     st.session_state["my_df"] = pd.read_csv(uploaded_file)
     st.rerun() 
-
 
 df = st.session_state["my_df"]
 
